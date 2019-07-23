@@ -46,7 +46,6 @@ Directories and files:
 └── src
     ├── index.js
     ├── logo-white.svg
-    ├── logo.svg
     ├── routes.js
     ├── components
     │   ├── FixedPlugin
@@ -66,11 +65,10 @@ Directories and files:
     ├── views
     │   ├── Dashboard.jsx
     │   ├── Icons.jsx
-    │   ├── Map.jsx
     │   ├── Notifications.jsx
     │   ├── Tables.jsx
     │   ├── Typography.jsx
-    │   ├── Upgrade.jsx
+    │   ├── Contribute.jsx
     │   └── User.jsx
     └── assets
         ├── css
