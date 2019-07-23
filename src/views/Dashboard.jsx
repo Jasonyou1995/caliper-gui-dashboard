@@ -65,8 +65,8 @@ class Dashboard extends React.Component {
                     </Col>
                     <Col md="8" xs="7">
                       <div className="numbers">
-                        <p className="card-category">Capacity</p>
-                        <CardTitle tag="p">150GB</CardTitle>
+                        <p className="card-category">TPS</p>
+                        <CardTitle tag="p">1,500</CardTitle>
                         <p />
                       </div>
                     </Col>
@@ -91,8 +91,8 @@ class Dashboard extends React.Component {
                     </Col>
                     <Col md="8" xs="7">
                       <div className="numbers">
-                        <p className="card-category">Revenue</p>
-                        <CardTitle tag="p">$ 1,345</CardTitle>
+                        <p className="card-category">Tx. Latency</p>
+                        <CardTitle tag="p">1,345 ms</CardTitle>
                         <p />
                       </div>
                     </Col>
@@ -101,7 +101,7 @@ class Dashboard extends React.Component {
                 <CardFooter>
                   <hr />
                   <div className="stats">
-                    <i className="far fa-calendar" /> Last day
+                    <i className="far fa-calendar" /> Last 3 hours
                   </div>
                 </CardFooter>
               </Card>
@@ -143,7 +143,7 @@ class Dashboard extends React.Component {
                     </Col>
                     <Col md="8" xs="7">
                       <div className="numbers">
-                        <p className="card-category">Followers</p>
+                        <p className="card-category">Success</p>
                         <CardTitle tag="p">+45K</CardTitle>
                         <p />
                       </div>
@@ -163,7 +163,7 @@ class Dashboard extends React.Component {
             <Col md="12">
               <Card>
                 <CardHeader>
-                  <CardTitle tag="h5">Users Behavior</CardTitle>
+                  <CardTitle tag="h5">Fabric CPP Volumns</CardTitle>
                   <p className="card-category">24 Hours performance</p>
                 </CardHeader>
                 <CardBody>
@@ -187,7 +187,7 @@ class Dashboard extends React.Component {
             <Col md="4">
               <Card>
                 <CardHeader>
-                  <CardTitle tag="h5">Email Statistics</CardTitle>
+                  <CardTitle tag="h5">Transaction Statistics</CardTitle>
                   <p className="card-category">Last Campaign Performance</p>
                 </CardHeader>
                 <CardBody>
@@ -198,14 +198,14 @@ class Dashboard extends React.Component {
                 </CardBody>
                 <CardFooter>
                   <div className="legend">
-                    <i className="fa fa-circle text-primary" /> Opened{" "}
-                    <i className="fa fa-circle text-warning" /> Read{" "}
-                    <i className="fa fa-circle text-danger" /> Deleted{" "}
-                    <i className="fa fa-circle text-gray" /> Unopened
+                    <i className="fa fa-circle text-primary" /> Fast{" "}
+                    <i className="fa fa-circle text-warning" /> Slow{" "}
+                    <i className="fa fa-circle text-danger" /> Failed{" "}
+                    <i className="fa fa-circle text-gray" />  Pending
                   </div>
                   <hr />
                   <div className="stats">
-                    <i className="fa fa-calendar" /> Number of emails sent
+                    <i className="fa fa-calendar" /> Number of transactions sent
                   </div>
                 </CardFooter>
               </Card>
@@ -213,7 +213,7 @@ class Dashboard extends React.Component {
             <Col md="8">
               <Card className="card-chart">
                 <CardHeader>
-                  <CardTitle tag="h5">NASDAQ: AAPL</CardTitle>
+                  <CardTitle tag="h5">Throughput History</CardTitle>
                   <p className="card-category">Line Chart with Points</p>
                 </CardHeader>
                 <CardBody>
@@ -226,8 +226,8 @@ class Dashboard extends React.Component {
                 </CardBody>
                 <CardFooter>
                   <div className="chart-legend">
-                    <i className="fa fa-circle text-info" /> Tesla Model S{" "}
-                    <i className="fa fa-circle text-warning" /> BMW 5 Series
+                    <i className="fa fa-circle text-info" /> Fabric CPP{" "}
+                    <i className="fa fa-circle text-warning" /> Sawtooth
                   </div>
                   <hr />
                   <div className="card-stats">

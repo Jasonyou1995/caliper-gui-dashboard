@@ -72,17 +72,17 @@ class Contribute extends React.Component {
                         <td className="text-center">160</td>
                       </tr>
                       <tr>
-                        <td>Plugins</td>
+                        <td>Visualizations</td>
                         <td className="text-center">4</td>
                         <td className="text-center">13</td>
                       </tr>
                       <tr>
-                        <td>Example Pages</td>
+                        <td>Benchmark Statistics</td>
                         <td className="text-center">7</td>
                         <td className="text-center">27</td>
                       </tr>
                       <tr>
-                        <td>Login, Register, Pricing, Lock Pages</td>
+                        <td>Benchmark Data Cloud Storage</td>
                         <td className="text-center">
                           <i className="nc-icon nc-simple-remove text-danger" />
                         </td>
@@ -92,8 +92,7 @@ class Contribute extends React.Component {
                       </tr>
                       <tr>
                         <td>
-                          DataTables, VectorMap, SweetAlert, Wizard,
-                          jQueryValidation, FullCalendar etc...
+                          Data Encryption
                         </td>
                         <td className="text-center">
                           <i className="nc-icon nc-simple-remove text-danger" />
@@ -103,7 +102,7 @@ class Contribute extends React.Component {
                         </td>
                       </tr>
                       <tr>
-                        <td>Mini Sidebar</td>
+                        <td>More Functionalities</td>
                         <td className="text-center">
                           <i className="nc-icon nc-simple-remove text-danger" />
                         </td>

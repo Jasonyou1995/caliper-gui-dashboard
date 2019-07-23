@@ -33,7 +33,6 @@ import Notifications from "views/Notifications.jsx";
 import Icons from "views/Icons.jsx";
 import Typography from "views/Typography.jsx";
 import TableList from "views/Tables.jsx";
-import Maps from "views/Map.jsx";
 import UserPage from "views/User.jsx";
 import Contribute from "views/Contribute.jsx";
 
@@ -50,13 +49,6 @@ var routes = [
     name: "Icons",
     icon: "nc-icon nc-diamond",
     component: Icons,
-    layout: "/admin"
-  },
-  {
-    path: "/maps",
-    name: "Maps",
-    icon: "nc-icon nc-pin-3",
-    component: Maps,
     layout: "/admin"
   },
   {

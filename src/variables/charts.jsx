@@ -181,22 +181,22 @@ const dashboardEmailStatisticsChart = {
 const dashboardNASDAQChart = {
   data: {
     labels: [
-      "Jan",
-      "Feb",
-      "Mar",
-      "Apr",
-      "May",
-      "Jun",
-      "Jul",
-      "Aug",
-      "Sep",
-      "Oct",
-      "Nov",
-      "Dec"
+      "1h",
+      "2h",
+      "3h",
+      "4h",
+      "5h",
+      "6h",
+      "7h",
+      "8h",
+      "9h",
+      "10h",
+      "11h",
+      "12h"
     ],
     datasets: [
       {
-        data: [0, 19, 15, 20, 30, 40, 40, 50, 25, 30, 50, 70],
+        data: [100, 1090, 1500, 2000, 3000, 4000, 4000, 5000, 2500, 3000, 5000, 7000],
         fill: false,
         borderColor: "#fbc658",
         backgroundColor: "transparent",
@@ -206,7 +206,7 @@ const dashboardNASDAQChart = {
         pointBorderWidth: 8
       },
       {
-        data: [0, 5, 10, 12, 20, 27, 30, 34, 42, 45, 55, 63],
+        data: [500, 900, 1000, 2000, 3500, 4060, 5000, 5600, 2500, 4000, 3000, 8000],
         fill: false,
         borderColor: "#51CACF",
         backgroundColor: "transparent",
