@@ -5,6 +5,7 @@ This is the Dashboard Client of Caliper GUI. This GUI is connected to Caliper-CL
 ## Table of Contents
 
 * [Quick Start](#quick-start)
+* [Caliper GUI Structure](#gui-structure)
 * [Documentation](#documentation)
 * [File Structure](#file-structure)
 * [Browser Support](#browser-support)
@@ -20,6 +21,54 @@ Quick start options:
 - Clone the repo: `git clone https://github.com/creativetimofficial/paper-dashboard-react.git`.
 - `npm i`
 - `npm start`
+
+## Caliper GUI Structure
+
+GUI Application Structure (Single Page App)
+
+### Front-end (React.js)
+- [ ] Dash Board Tab (Overview)
+    - [ ] Detailed visualization sub-tab
+        - [ ] Overall Tx throughput
+        - [ ] Overall Read throughput
+        - [ ] Overall Tx Latency
+        - [ ] Overall Read Latency
+        - [ ] Network Time (blockchain network running time)
+        - [ ] Storage Usage (The size of the blockchain config and dependencies)
+        - [ ] The total size of the hard disk
+        - [ ] Current CPU Usage by Blockchain network [Time series by storing in JSON mongoDB?]
+        - [ ] Current Memory Usage by Blockchain network
+        - [ ] Test success rate (success count + fail count)
+        - [ ] Network volumn/speed for each node/ip:port address
+        - [ ] The detailed consumption and connection status for each node (ip/container/etc.)
+	        - [ ] Overall Tx throughput
+	        - [ ] Overall Read throughput
+	        - [ ] Overall Tx Latency
+	        - [ ] Overall Read Latency
+        - [ ] … 
+- [ ] Notification Tab (Console error or warning from CLI?)
+- [ ] Network Profile Tab (Blockchain network visualization)
+    - [ ] Overview sub-tab
+    - [ ] Peers node info (ip, function, channel and org. affiliation, etc.)
+    - [ ] Orderer node info
+    - [ ] Org/Member info
+    - [ ] Channel info
+    - [ ] Node connection (relationships)
+    - [ ] Overall network visualization for all peers, orderer, members, and channels [Fabric CPP]
+- [ ] Table List Tab (Historical Benchmark Data In Table Form: add JSON data downloadable functionality)
+    - [ ] Overview
+    - [ ] Date selection for detailed visualization
+- [ ] [Bottom Tab] Configuration Tab
+    - [ ] All the config form and submission functionality (JSON) to Caliper-CLI and MongoDB.
+
+### Back-end (Express.js, Node.js, MongoDBliper, Caliper-LI)
+- [ ] Express.js to handle configuration JSON transaction <-> Caliper-CLI and get response (success/fail/erros)
+- [ ] MongoDB to locally store historical data JSON (date selection to retrieve data)
+    - [ ] Saving all the historical configuration data?
+    - [ ] Saving all the visualization data?
+    - [ ] Adding cloud backup/upload service in the future?
+- [ ] Submitting Config JSON to Caliper-CLI and get response when config finished. [HOW?]
+
 
 
 ## Documentation
