@@ -66,8 +66,7 @@ class Footer extends React.Component {
             </nav>
             <div className="credits ml-auto">
               <div className="copyright">
-                &copy; {1900 + new Date().getYear()}, made with{" "}
-                <i className="fa fa-heart heart" /> by Jason You
+                &copy; {1900 + new Date().getYear()}, made by Jason You [Hyperledger Caliper]
               </div>
             </div>
           </Row>

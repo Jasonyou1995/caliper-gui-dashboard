@@ -37,7 +37,6 @@ import {
     CardHeader,
     CardTitle,
     CardFooter,
-    Button,
 } from "reactstrap";
 
 import { 
@@ -64,13 +63,13 @@ const DashboardOverview = function() {
                     <Row>
                       <Col md="4" xs="5">
                         <div className="icon-big text-center icon-warning">
-                          <i className="nc-icon nc-globe text-warning" />
+                          <i className="nc-icon nc-delivery-fast text-warning" />
                         </div>
                       </Col>
                       <Col md="8" xs="7">
                         <div className="numbers">
                           <p className="card-category">Tx TPS</p>
-                          <CardTitle tag="p">1,500</CardTitle>
+                          <CardTitle tag="p">150</CardTitle>
                           <p />
                         </div>
                       </Col>
@@ -96,13 +95,13 @@ const DashboardOverview = function() {
                     <Row>
                       <Col md="4" xs="5">
                         <div className="icon-big text-center icon-warning">
-                          <i className="nc-icon nc-money-coins text-success" />
+                          <i className="nc-icon nc-user-run text-warning" />
                         </div>
                       </Col>
                       <Col md="8" xs="7">
                         <div className="numbers">
                           <p className="card-category">Tx Latency</p>
-                          <CardTitle tag="p">1,345 ms</CardTitle>
+                          <CardTitle tag="p">1345 ms</CardTitle>
                           <p />
                         </div>
                       </Col>
@@ -111,7 +110,7 @@ const DashboardOverview = function() {
                   <CardFooter>
                     <hr />
                     <div className="stats">
-                      <i className="far fa-calendar" /> Last 3 hours
+                      <i className="fas fa-sync-alt" /> See Details
                     </div>
                   </CardFooter>
                 </Card>
@@ -128,13 +127,13 @@ const DashboardOverview = function() {
                     <Row>
                       <Col md="4" xs="5">
                         <div className="icon-big text-center icon-warning">
-                          <i className="nc-icon nc-vector text-danger" />
+                          <i className="nc-icon nc-money-coins text-warning" />
                         </div>
                       </Col>
                       <Col md="8" xs="7">
                         <div className="numbers">
                           <p className="card-category">Read TPS</p>
-                          <CardTitle tag="p">23</CardTitle>
+                          <CardTitle tag="p">63</CardTitle>
                           <p />
                         </div>
                       </Col>
@@ -143,7 +142,7 @@ const DashboardOverview = function() {
                   <CardFooter>
                     <hr />
                     <div className="stats">
-                      <i className="far fa-clock" /> In the last hour
+                      <i className="fas fa-sync-alt" /> See Details
                     </div>
                   </CardFooter>
                 </Card>
@@ -160,13 +159,13 @@ const DashboardOverview = function() {
                     <Row>
                       <Col md="4" xs="5">
                         <div className="icon-big text-center icon-warning">
-                          <i className="nc-icon nc-favourite-28 text-primary" />
+                          <i className="nc-icon nc-spaceship text-warning" />
                         </div>
                       </Col>
                       <Col md="8" xs="7">
                         <div className="numbers">
                           <p className="card-category">Read Latency</p>
-                          <CardTitle tag="p">+45K</CardTitle>
+                          <CardTitle tag="p">450 ms</CardTitle>
                           <p />
                         </div>
                       </Col>
@@ -175,35 +174,11 @@ const DashboardOverview = function() {
                   <CardFooter>
                     <hr />
                     <div className="stats">
-                      <i className="fas fa-sync-alt" /> Update now
+                      <i className="fas fa-sync-alt" /> See Details
                     </div>
                   </CardFooter>
                 </Card>
               </a>
-            </Col>
-          </Row>
-          <Row>
-            <Col md="12">
-              <Card>
-                <CardHeader>
-                  <CardTitle tag="h5">Latency Overview</CardTitle>
-                  <p className="card-category">24 Hours performance</p>
-                </CardHeader>
-                <CardBody>
-                  <Line
-                    data={dashboard24HoursPerformanceChart.data}
-                    options={dashboard24HoursPerformanceChart.options}
-                    width={400}
-                    height={100}
-                  />
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="fa fa-history" /> Updated 3 minutes ago
-                  </div>
-                </CardFooter>
-              </Card>
             </Col>
           </Row>
           <Row>
@@ -223,12 +198,54 @@ const DashboardOverview = function() {
                 </CardBody>
                 <CardFooter>
                   <div className="chart-legend">
-                    <i className="fa fa-circle text-info" /> Fabric CPP{" "}
-                    <i className="fa fa-circle text-warning" /> Sawtooth
+                    <i className="fa fa-circle text-info" /> Tx Throughput{" "}
+                    <i className="fa fa-circle text-warning" /> Read Throughput
                   </div>
                   <hr />
                   <div className="card-stats">
-                    <i className="fa fa-check" /> Data information certified
+                    <a
+                      href="/admin/dashboard"
+                      style={{
+                        cursor:"pointer",
+                        textDecoration:"none",
+                        color: "#A9A9A9"
+                      }}
+                    >
+                      <i className="fa fa-history" /> Updated 3 minutes ago
+                    </a>
+                  </div>
+                </CardFooter>
+              </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col md="12">
+              <Card>
+                <CardHeader>
+                  <CardTitle tag="h5">Latency Overview</CardTitle>
+                  <p className="card-category">[Fast] Green, [Medium] Yellow, [Slow] Red</p>
+                </CardHeader>
+                <CardBody>
+                  <Line
+                    data={dashboard24HoursPerformanceChart.data}
+                    options={dashboard24HoursPerformanceChart.options}
+                    width={400}
+                    height={100}
+                  />
+                </CardBody>
+                <CardFooter>
+                  <hr />
+                  <div className="card-stats">
+                    <a
+                      href="/admin/dashboard"
+                      style={{
+                        cursor:"pointer",
+                        textDecoration:"none",
+                        color: "#A9A9A9"
+                      }}
+                    >
+                      <i className="fa fa-history" /> Updated 3 minutes ago
+                    </a>
                   </div>
                 </CardFooter>
               </Card>

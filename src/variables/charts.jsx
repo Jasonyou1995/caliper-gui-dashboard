@@ -27,21 +27,29 @@ Copyright (c) 2019 Jason You
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
+var dateOptions = {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+};
 
 const dashboard24HoursPerformanceChart = {
   data: canvas => {
     return {
       labels: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct"
+        new Date("2019-08-01T17:02:05").toLocaleDateString("en-US", dateOptions),
+        new Date("2019-08-01T17:03:05").toLocaleDateString("en-US", dateOptions),
+        new Date("2019-08-01T17:04:05").toLocaleDateString("en-US", dateOptions),
+        new Date("2019-08-01T17:05:05").toLocaleDateString("en-US", dateOptions),
+        new Date("2019-08-01T17:06:05").toLocaleDateString("en-US", dateOptions),
+        new Date("2019-08-01T17:07:05").toLocaleDateString("en-US", dateOptions),
+        new Date("2019-08-01T17:08:05").toLocaleDateString("en-US", dateOptions),
+        new Date("2019-08-01T17:09:05").toLocaleDateString("en-US", dateOptions),
+        new Date("2019-08-01T17:10:05").toLocaleDateString("en-US", dateOptions),
+        new Date("2019-08-01T17:12:05").toLocaleDateString("en-US", dateOptions),
       ],
       datasets: [
         {
@@ -53,16 +61,16 @@ const dashboard24HoursPerformanceChart = {
           data: [300, 310, 316, 322, 330, 326, 333, 345, 338, 354]
         },
         {
-          borderColor: "#f17e5d",
-          backgroundColor: "#f17e5d",
+          borderColor: "#fcc468",
+          backgroundColor: "#fcc468",
           pointRadius: 0,
           pointHoverRadius: 0,
           borderWidth: 3,
           data: [320, 340, 365, 360, 370, 385, 390, 384, 408, 420]
         },
         {
-          borderColor: "#fcc468",
-          backgroundColor: "#fcc468",
+          borderColor: "#f17e5d",
+          backgroundColor: "#f17e5d",
           pointRadius: 0,
           pointHoverRadius: 0,
           borderWidth: 3,
@@ -196,7 +204,7 @@ const dashboardNASDAQChart = {
     ],
     datasets: [
       {
-        data: [100, 1090, 1500, 2000, 3000, 4000, 4000, 5000, 2500, 3000, 5000, 7000],
+        data: [100, 109, 150, 200, 300, 400, 400, 500, 250, 300, 500, 700],
         fill: false,
         borderColor: "#fbc658",
         backgroundColor: "transparent",
@@ -206,7 +214,7 @@ const dashboardNASDAQChart = {
         pointBorderWidth: 8
       },
       {
-        data: [500, 900, 1000, 2000, 3500, 4060, 5000, 5600, 2500, 4000, 3000, 8000],
+        data: [500, 200, 100, 200, 350, 400, 500, 560, 250, 400, 300, 800],
         fill: false,
         borderColor: "#51CACF",
         backgroundColor: "transparent",

@@ -58,7 +58,7 @@ class Dashboard extends React.Component {
               </div>
           </div>
       ),
-      type: "primary",
+      type: "warning",
       icon: "now-ui-icons ui-1_bell-53",
       autoDismiss: 7
     });
@@ -74,6 +74,7 @@ class Dashboard extends React.Component {
     let currentPath = this.props.location.pathname.split("/");
     let currentComponent = currentPath[currentPath.length - 1];
     let name = "";
+    let icon = null;
 
     switch(currentComponent) {
       case "dashboard":
@@ -81,16 +82,20 @@ class Dashboard extends React.Component {
         break;
       case "tx-throughput":
         name = "Transaction Throughput";
+        icon = <i className="nc-icon nc-delivery-fast text-warning" />;
         break;
       case "tx-latency":
         name = "Transaction Latency";
+        icon = <i className="nc-icon nc-user-run text-warning" />;
         break;
       case "read-throughput":
-          name = "Read Throughput";
-          break;
+        name = "Read Throughput";
+        icon = <i className="nc-icon nc-money-coins text-warning" />;
+        break;
       case "read-latency":
-          name = "Read Latency";
-          break;
+        name = "Read Latency";
+        icon = <i className="nc-icon nc-spaceship text-warning" />;
+        break;
       default:
         name = "";
     }
@@ -104,12 +109,10 @@ class Dashboard extends React.Component {
       return (
         <DashboardVisualization
           name={name}
+          icon={icon}
           lineData={data}
           lineOptions={lineOptions}
           lineHeight={100}
-          doughnutData={doughnutData}
-          doughnutOptions={doughnutOptions}
-          doughnutHeight={300}
           barData={barData}
           barOptions={barOptions}
           barHeight={300}

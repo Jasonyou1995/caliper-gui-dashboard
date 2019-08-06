@@ -16,8 +16,7 @@ import React from "react";
 // react plugin used to create charts [https://github.com/jerairrest/react-chartjs-2]
 import { 
   Line,
-  Bar, 
-  Doughnut,
+  Bar,
 } from "react-chartjs-2";
 
 
@@ -36,8 +35,13 @@ const DashboardVisualization = function(props) {
     return(
       <div id="tx-throughput-block">
         <Row>
-          <Col md='12' className='text-center text-warning'>
-            <h2><i className="fa fa-bolt" aria-hidden="true"></i>{props.name}</h2>
+          <Col md='12'>
+            <Card
+              className='text-center text-primary'
+              style={{ paddingTop: "25px" }}
+            >
+              <h2>{props.icon} {props.name}</h2>
+            </Card>
           </Col>
         </Row>
 
@@ -66,28 +70,7 @@ const DashboardVisualization = function(props) {
         </Row>
 
         <Row>
-          <Col md='6'>
-            <Card>
-              <CardHeader>
-                <CardTitle>Success Rate</CardTitle>
-                <p className='card-category'>Doughnut Chart for Success Rate Visualization with Patternse</p>
-              </CardHeader>
-              <CardBody>
-                <Doughnut
-                  data={props.doughnutData}
-                  options={props.doughnutOptions}
-                  height={props.doughnutHeight}
-                />
-              </CardBody>
-              <CardFooter>
-                <hr />
-                <div className='stats'>
-                  <i className="fa fa-anchor" /> Anchor
-                </div>
-              </CardFooter>
-            </Card>
-          </Col>
-          <Col md='6'>
+          <Col md='12'>
             <Card>
               <CardHeader>
                 <CardTitle>Monthly Latency Tx. Counting (Slow, Normal, Fast)</CardTitle>

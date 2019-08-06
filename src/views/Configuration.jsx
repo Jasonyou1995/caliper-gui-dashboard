@@ -57,65 +57,7 @@ class Configuration extends React.Component {
                   </p>
                 </CardHeader>
                 <CardBody>
-                  <Table responsive>
-                    <thead>
-                      <tr>
-                        <th />
-                        <th className="text-center">True</th>
-                        <th className="text-center">False</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>Fabric CCP</td>
-                        <td className="text-center">16</td>
-                        <td className="text-center">160</td>
-                      </tr>
-                      <tr>
-                        <td>Sawtooth Blockchain</td>
-                        <td className="text-center">4</td>
-                        <td className="text-center">13</td>
-                      </tr>
-                      <tr>
-                        <td>Iroha</td>
-                        <td className="text-center">7</td>
-                        <td className="text-center">27</td>
-                      </tr>
-                      <tr>
-                        <td>Burrow Blockchain</td>
-                        <td className="text-center">
-                          <i className="nc-icon nc-simple-remove text-danger" />
-                        </td>
-                        <td className="text-center">
-                          <i className="nc-icon nc-check-2 text-success" />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>More Functionalities To Add</td>
-                        <td className="text-center">
-                          <i className="nc-icon nc-simple-remove text-danger" />
-                        </td>
-                        <td className="text-center">
-                          <i className="nc-icon nc-check-2 text-success" />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td className="text-right">
-                          <Button
-                            className="btn-round"
-                            color="primary"
-                            href="#"
-                            rel="noopener noreferrer"
-                            target="_blank"
-                          >
-                            Configurate
-                          </Button>
-                        </td>
-                        <td />
-                        <td />
-                      </tr>
-                    </tbody>
-                  </Table>
+                  
                 </CardBody>
               </Card>
             </Col>

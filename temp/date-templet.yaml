@@ -6,18 +6,33 @@ dashboard
       - sawtooth
       - iroha
       - burrow
-    avreages:
+    average-data:
       - ave-tx-throughput
       - ave-tx-latency
       - ave-read-throughput
       - ave-read-latency
     volumn:
-      - volumn-each-5-seconds
-  transaction-throughput
-    
-  transaction-latency
-  read-throughput
-  read-latency
+      - volumn-each-X-seconds
+  transaction-throughput:
+    real-time-timeseries-data
+  transaction-latency:
+    real-time-timeseries-data
+  read-throughput:
+    real-time-timeseries-data
+  read-latency:
+    real-time-timeseries-data
 network-graph
-  name: “The network name (Fabric, Sawtooth, etc.)”,
-  channel
+  - name: “The network name (Fabric, Sawtooth, etc.)”,
+  - channels-information
+  - peers-information
+  - order-information
+history-data
+  time-series-real-time-data:
+    - ave-tx-throughput
+    - ave-tx-latency
+    - ave-read-throughput
+    - ave-read-latency
+  success-rate:
+    - Success
+    - Warning
+    - Failed

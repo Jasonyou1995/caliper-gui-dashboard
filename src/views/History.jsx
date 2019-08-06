@@ -29,7 +29,7 @@ Copyright (c) 2019 Jason You
 */
 
 import React from "react";
-import { Radar } from "react-chartjs-2";
+import { HorizontalBar, Doughnut } from "react-chartjs-2";
 
 // reactstrap components
 import {
@@ -37,11 +37,16 @@ import {
   CardHeader,
   CardBody,
   CardTitle,
+  CardFooter,
   Table,
   Row,
   Col
 } from "reactstrap";
 
+import {
+  doughnutData,
+  doughnutOptions,
+} from "../data/mockData";
 
 var dateOptions = {
   year: 'numeric',
@@ -52,48 +57,46 @@ var dateOptions = {
   second: '2-digit',
 };
 
-// Temp radar data
-var radarData = {
-  labels: ['Read Latency', 'Read Throughput', 'Tx. Latency', 'Tx. Throughput', 'Success Rate'],
+const data = {
+  labels: [
+    new Date("2019-08-01T17:02:05").toLocaleDateString("en-US", dateOptions),
+    new Date("2019-08-01T17:03:05").toLocaleDateString("en-US", dateOptions),
+    new Date("2019-08-01T17:04:05").toLocaleDateString("en-US", dateOptions),
+    new Date("2019-08-01T17:05:05").toLocaleDateString("en-US", dateOptions),
+    new Date("2019-08-01T17:06:05").toLocaleDateString("en-US", dateOptions),
+    new Date("2019-08-01T17:07:05").toLocaleDateString("en-US", dateOptions),
+    new Date("2019-08-01T17:08:05").toLocaleDateString("en-US", dateOptions),
+    new Date("2019-08-01T17:09:05").toLocaleDateString("en-US", dateOptions),
+  ],
   datasets: [
     {
-      label: new Date("2019-08-03T17:23:05").toLocaleDateString("en-US", dateOptions),
-      backgroundColor: 'rgba(179,181,198,0.2)',
-      borderColor: 'rgba(179,181,198,1)',
-      pointBackgroundColor: 'rgba(179,181,198,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(179,181,198,1)',
-      data: [65, 59, 90, 81, 88]
-    },
-    {
-      label: new Date().toLocaleDateString("en-US", dateOptions),
+      label: 'Sample dataset',
       backgroundColor: 'rgba(255,99,132,0.2)',
       borderColor: 'rgba(255,99,132,1)',
-      pointBackgroundColor: 'rgba(255,99,132,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(255,99,132,1)',
-      data: [100, 96, 207, 90, 99]
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+      hoverBorderColor: 'rgba(255,99,132,1)',
+      data: [65, 59, 80, 81, 56, 55, 40, 10]
     }
   ]
 };
-var radarOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    legend: {
-        display: true,
-        // onClick: (e) => e.stopPropagation(),
-        position: "bottom",
-        labels: {
-            usePointStyle: true,
-        }
-    },
-    tooltips: {
-        enabled: true,
-    },
-};
 
+const options = {
+  scales: {
+    yAxes: [{
+      ticks: {
+        autoSkip: false,
+        maxRotation: 0,
+        minRotation: 0,
+      },
+    }],
+    xAxes: [{
+      ticks: {
+        beginAtZero: true,
+      }
+    }]
+  }
+}
 
 class History extends React.Component {
   render() {
@@ -119,18 +122,39 @@ class History extends React.Component {
                     </thead>
                     <tbody>
                       <tr>
-                        <td>{new Date("2019-08-03T17:23:05").toLocaleDateString("en-US", dateOptions)}</td>
-                        <td>30 ms</td>
+                        <td>{new Date("2019-08-01T17:02:05").toLocaleDateString("en-US", dateOptions)}</td>
+                        <td>33 ms</td>
                         <td>1000</td>
                         <td>50 ms</td>
-                        <td className="text-right">800</td>
+                        <td className="text-right">952</td>
+                      </tr>
+                      <tr>
+                        <td>{new Date("2019-08-02T08:23:05").toLocaleDateString("en-US", dateOptions)}</td>
+                        <td>35 ms</td>
+                        <td>800</td>
+                        <td>60 ms</td>
+                        <td className="text-right">1430</td>
+                      </tr>
+                      <tr>
+                        <td>{new Date("2019-08-03T07:23:05").toLocaleDateString("en-US", dateOptions)}</td>
+                        <td>30 ms</td>
+                        <td>948</td>
+                        <td>45 ms</td>
+                        <td className="text-right">1040</td>
+                      </tr>
+                      <tr>
+                        <td>{new Date("2019-08-03T17:23:05").toLocaleDateString("en-US", dateOptions)}</td>
+                        <td>30 ms</td>
+                        <td>394</td>
+                        <td>90 ms</td>
+                        <td className="text-right">845</td>
                       </tr>
                       <tr>
                         <td>{new Date().toLocaleDateString("en-US", dateOptions)}</td>
                         <td>45 ms</td>
                         <td>1049</td>
                         <td>53 ms</td>
-                        <td className="text-right">1200</td>
+                        <td className="text-right">1340</td>
                       </tr>
                     </tbody>
                   </Table>
@@ -139,20 +163,83 @@ class History extends React.Component {
                 </CardBody>
               </Card>
             </Col>
+          </Row>
+
+          <Row>
             <Col md="12">
-              <Card className="card-plain">
+              <Card>
                 <CardHeader>
-                  <CardTitle tag="h4">Average Performance Benchmark</CardTitle>
-                  <p className="card-category">
-                    The average benchmark based on all previous performance on this blockchain. (ID? KEY?)
-                  </p>
+                  <CardTitle>Success Rate</CardTitle>
+                  <p className='card-category'>Doughnut Chart for Success Rate Visualization with Patternse</p>
                 </CardHeader>
                 <CardBody>
-                  <Radar
-                    data={radarData}
-                    options={radarOptions}
-                    height={500}
+                  <Doughnut
+                    data={doughnutData}
+                    options={doughnutOptions}
+                    height={300}
                   />
+                </CardBody>
+                <CardFooter>
+                  <hr />
+                  <div className='stats'>
+                    <i className="fa fa-anchor" /> Anchor
+                  </div>
+                </CardFooter>
+              </Card>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col md="6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>
+                    Tx Throughput History
+                  </CardTitle>
+                </CardHeader>
+                <CardBody>
+                  <HorizontalBar data={data} options={options} />
+                </CardBody>
+              </Card>
+            </Col>
+
+            <Col md="6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>
+                    Tx Latency History
+                  </CardTitle>
+                </CardHeader>
+                <CardBody>
+                  <HorizontalBar data={data} options={options} />
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col md="6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>
+                    Read Throughput History
+                  </CardTitle>
+                </CardHeader>
+                <CardBody>
+                  <HorizontalBar data={data} options={options} />
+                </CardBody>
+              </Card>
+            </Col>
+
+            <Col md="6">
+              <Card>
+                <CardHeader>
+                  <CardTitle>
+                    Read Latency History
+                  </CardTitle>
+                </CardHeader>
+                <CardBody>
+                  <HorizontalBar data={data} options={options} />
                 </CardBody>
               </Card>
             </Col>

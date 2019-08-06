@@ -55,6 +55,40 @@ class FixedPlugin extends Component {
             <i className="fa fa-cog fa-2x" />
           </div>
           <ul className="dropdown-menu show">
+            <li className="button-container">
+              <Button
+                href="https://github.com/Jasonyou1995/caliper-gui-dashboard"
+                target="_blank"
+                color="primary"
+                block
+                className="btn-round"
+              >
+                <i className="fab fa-github"></i> Download Source 
+              </Button>
+            </li>
+            <li className="button-container">
+              <Button
+                href="/admin/documentation"
+                color="default"
+                block
+                className="btn-round"
+                outline
+              >
+                <i className="nc-icon nc-paper" /> Documentation
+              </Button>
+            </li>
+            <li className="button-container">
+              <Button
+                href="https://www.hyperledger.org/projects/caliper"
+                color="warning"
+                block
+                className="btn-round"
+                target="_blank"
+              >
+                <i className="fas fa-code-branch"></i> Hyperledger Caliper
+              </Button>
+            </li>
+
             <li className="header-title">SIDEBAR BACKGROUND</li>
             <li className="adjustments-line">
               <div className="badge-colors text-center">
@@ -141,39 +175,6 @@ class FixedPlugin extends Component {
                   }}
                 />
               </div>
-            </li>
-            <li className="button-container">
-              <Button
-                href="/"
-                color="primary"
-                block
-                className="btn-round"
-              >
-                <i className="fab fa-github"></i> Download Source 
-              </Button>
-            </li>
-            <li className="button-container">
-              <Button
-                href="/"
-                color="default"
-                block
-                className="btn-round"
-                outline
-              >
-                <i className="nc-icon nc-paper" /> Documentation
-              </Button>
-            </li>
-            <li className="header-title">Want to contribute?</li>
-            <li className="button-container">
-              <Button
-                href="/"
-                color="danger"
-                block
-                className="btn-round"
-                target="_blank"
-              >
-                <i className="fas fa-code-branch"></i> Contributeing Guides
-              </Button>
             </li>
           </ul>
         </div>

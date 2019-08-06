@@ -49,16 +49,13 @@ class Documentation extends React.Component {
                 </CardHeader>
                 <CardBody>
                   <div className="typography-line">
-                    <h2>
+                    <p>
                       <span>Configuration</span>
-                      The first step is to config Caliper-cli with GUI
-                    </h2>
+                      Configuration Guide
+                    </p>
                   </div>
                   <div className="typography-line">
                     <span>Caliper GUI Usage</span>
-                    <p className="text-warning">
-                     Usage guide ...
-                    </p>
                   </div>
                 </CardBody>
               </Card>

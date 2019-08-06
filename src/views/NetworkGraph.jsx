@@ -33,12 +33,9 @@ import { Graph } from 'react-d3-graph';  // blockchain graph visualization
 
 // reactstrap components
 import {
-  Button,
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
-  CardTitle,
   Row,
   Col
 } from "reactstrap";
@@ -46,23 +43,87 @@ import {
 // Graph Visualization
 // graph payload (with minimalist structure)
 const data = {
-  nodes: [{ id: 'Orderer' }, { id: 'Peer1' }, { id: 'Peer2' }],
-  links: [{ source: 'Orderer', target: 'Peer1' }, { source: 'Orderer', target: 'Peer2' }]
+  nodes: [
+    { id: '<ORDERER>', symbolType: 'star' },
+    { id: 'Peer1', symbolType: 'circle' },
+    { id: 'Peer2', symbolType: 'circle' },
+    { id: 'Peer3', symbolType: 'circle' },
+    { id: 'Peer4', symbolType: 'circle' },
+    { id: 'Peer5', symbolType: 'circle' },
+    { id: 'Peer6', symbolType: 'circle' },
+    { id: 'Channel1', symbolType: 'triangle' },
+    { id: 'Channel2', symbolType: 'triangle' },
+  ],
+  links: [
+    { source: 'Channel1', target: 'Peer1' },
+    { source: 'Channel1', target: 'Peer2' },
+    { source: 'Channel1', target: 'Peer3' },
+    { source: 'Channel2', target: 'Peer4' },
+    { source: 'Channel2', target: 'Peer5' },
+    { source: 'Channel2', target: 'Peer6' },
+    { source: '<ORDERER>', target: 'Channel1' },
+    { source: '<ORDERER>', target: 'Channel2' },
+  ]
 };
 
-// the graph configuration, you only need to pass down properties
-// that you want to override, otherwise default ones will be used
 const myConfig = {
-  nodeHighlightBehavior: true,
-  node: {
-      color: 'lightgreen',
-      size: 120,
-      highlightStrokeColor: 'blue'
+  "automaticRearrangeAfterDropNode": false,
+  "collapsible": false,
+  "directed": false,
+  "focusAnimationDuration": 0.75,
+  "focusZoom": 1,
+  "height": 600,
+  "highlightDegree": 1,
+  "highlightOpacity": 1,
+  "linkHighlightBehavior": false,
+  "maxZoom": 2,
+  "minZoom": 0.5,
+  "nodeHighlightBehavior": false,
+  "panAndZoom": false,
+  "staticGraph": false,
+  "width": 1100,
+  "d3": {
+    "alphaTarget": 0.05,
+    "gravity": -100,
+    "linkLength": 100,
+    "linkStrength": 1
   },
-  link: {
-      highlightColor: 'lightblue'
+  "node": {
+    "color": "#d3d3d3",
+    "fontColor": "#F9A044",
+    "fontSize": 16,
+    "fontWeight": "bold",
+    "highlightColor": "SAME",
+    "highlightFontSize": 8,
+    "highlightFontWeight": "normal",
+    "highlightStrokeColor": "SAME",
+    "highlightStrokeWidth": "SAME",
+    "labelProperty": "id",
+    "mouseCursor": "pointer",
+    "opacity": 1,
+    "renderLabel": true,
+    "size": 400,
+    "strokeColor": "none",
+    "strokeWidth": 1.5,
+    "svg": "",
+    "symbolType": "circle"
+  },
+  "link": {
+    "color": "#d3d3d3",
+    "fontColor": "black",
+    "fontSize": 8,
+    "fontWeight": "normal",
+    "highlightColor": "#d3d3d3",
+    "highlightFontSize": 8,
+    "highlightFontWeight": "normal",
+    "labelProperty": "label",
+    "mouseCursor": "pointer",
+    "opacity": 0.6,
+    "renderLabel": false,
+    "semanticStrokeWidth": false,
+    "strokeWidth": 1.5
   }
-};
+}
 
 // graph event callbacks
 const onClickGraph = function() {
@@ -113,39 +174,33 @@ class NetworkGraph extends React.Component {
       <>
         <div className="content">
           <Row>
-            <Col md="4">
-              <Card className="card-user">
-                <div className="image">
-                  <img
-                    alt="..."
-                    src={require("assets/img/hyperledger/fabric2.png")}
-                  />
-                </div>
+            <Col md="12">
+              <Card>
                 <CardBody>
-                  <div>
-                    <h5 className="title text-center text-primary">Fabric CCP</h5>
+                  <div className="text-center text-primary">
+                    <h2>Network Graph</h2>
+                    <h5>Hyperledger Fabric</h5>
                   </div>
-                  <p className="description text-info text-center">Maybe A Small <strong>Visualization</strong> In Here?</p>
                 </CardBody>
                 <CardFooter>
                   <hr />
-                  <div className="button-container">
-                    <Row>
+                  <div>
+                    <Row className="text-center">
                       <Col className="ml-auto" lg="4" md="6" xs="6">
                         <h5>
-                          3 <br />
-                          <small>Members  </small>
+                          2 <br />
+                          <small>Channels  </small>
                         </h5>
                       </Col>
                       <Col className="ml-auto mr-auto" lg="4" md="6" xs="6">
                         <h5>
-                          2 <br />
+                          1 <br />
                           <small>Orderers</small>
                         </h5>
                       </Col>
                       <Col className="mr-auto" lg="4">
                         <h5>
-                          24 <br />
+                          6 <br />
                           <small>Peers</small>
                         </h5>
                       </Col>
@@ -153,41 +208,16 @@ class NetworkGraph extends React.Component {
                   </div>
                 </CardFooter>
               </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle tag="h5">Graph Operation Guide</CardTitle>
-                </CardHeader>
-                <CardBody>
-                  <p>Shortcuts</p>
-
-                  <p>Mouse Operations</p>
-
-                  <p>Configurations Guide</p>
-                </CardBody>
-              </Card>
             </Col>
-            <Col md="8">
-              <Card>
-                <CardHeader>
-                  <CardTitle tag="h5">Fabric Blockchain Network Graph</CardTitle>
-                </CardHeader>
-                <CardBody>
-                  <p className="description">Double Click to original scale</p>
+          </Row>
+          <Row>
+            <Col md="12">
+              <Card style={{ background: "black" }}>
                   <Graph
                     id="graph-id" // id is mandatory, if no id is defined rd3g will throw an error
                     data={data}
                     config={myConfig}
-                    onDoubleClickNode={onDoubleClickNode}
                 />
-                </CardBody>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle tag="h5">Graph Configurations</CardTitle>
-                </CardHeader>
-                <CardBody>
-
-                </CardBody>
               </Card>
             </Col>
           </Row>
