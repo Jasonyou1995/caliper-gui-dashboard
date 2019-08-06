@@ -42,7 +42,7 @@ import {
   Col
 } from "reactstrap";
 
-class Contribute extends React.Component {
+class Configuration extends React.Component {
   render() {
     return (
       <>
@@ -51,9 +51,9 @@ class Contribute extends React.Component {
             <Col className="ml-auto mr-auto" md="8">
               <Card className="card-upgrade">
                 <CardHeader className="text-center">
-                  <CardTitle tag="h4">Caliper GUI Beta</CardTitle>
+                  <CardTitle tag="h4">Caliper GUI Configuration</CardTitle>
                   <p className="card-category">
-                    Do you want to add more features to Caliper GUI? Please feel free to contribute to this project's Beta.
+                    Select your options for Caliper GUI configuration.
                   </p>
                 </CardHeader>
                 <CardBody>
@@ -61,28 +61,28 @@ class Contribute extends React.Component {
                     <thead>
                       <tr>
                         <th />
-                        <th className="text-center">Free</th>
-                        <th className="text-center">PRO</th>
+                        <th className="text-center">True</th>
+                        <th className="text-center">False</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <td>Components</td>
+                        <td>Fabric CCP</td>
                         <td className="text-center">16</td>
                         <td className="text-center">160</td>
                       </tr>
                       <tr>
-                        <td>Visualizations</td>
+                        <td>Sawtooth Blockchain</td>
                         <td className="text-center">4</td>
                         <td className="text-center">13</td>
                       </tr>
                       <tr>
-                        <td>Benchmark Statistics</td>
+                        <td>Iroha</td>
                         <td className="text-center">7</td>
                         <td className="text-center">27</td>
                       </tr>
                       <tr>
-                        <td>Benchmark Data Cloud Storage</td>
+                        <td>Burrow Blockchain</td>
                         <td className="text-center">
                           <i className="nc-icon nc-simple-remove text-danger" />
                         </td>
@@ -91,9 +91,7 @@ class Contribute extends React.Component {
                         </td>
                       </tr>
                       <tr>
-                        <td>
-                          Data Encryption
-                        </td>
+                        <td>More Functionalities To Add</td>
                         <td className="text-center">
                           <i className="nc-icon nc-simple-remove text-danger" />
                         </td>
@@ -102,51 +100,19 @@ class Contribute extends React.Component {
                         </td>
                       </tr>
                       <tr>
-                        <td>More Functionalities</td>
-                        <td className="text-center">
-                          <i className="nc-icon nc-simple-remove text-danger" />
-                        </td>
-                        <td className="text-center">
-                          <i className="nc-icon nc-check-2 text-success" />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Premium Support</td>
-                        <td className="text-center">
-                          <i className="nc-icon nc-simple-remove text-danger" />
-                        </td>
-                        <td className="text-center">
-                          <i className="nc-icon nc-check-2 text-success" />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td />
-                        <td className="text-center">Free</td>
-                        <td className="text-center">Just $49</td>
-                      </tr>
-                      <tr>
-                        <td className="text-center" />
-                        <td className="text-center">
-                          <Button
-                            className="btn-round disabled"
-                            color="default"
-                            href="#pablo"
-                            onClick={e => e.preventDefault()}
-                          >
-                            Current Version
-                          </Button>
-                        </td>
-                        <td className="text-center">
+                        <td className="text-right">
                           <Button
                             className="btn-round"
                             color="primary"
-                            href="https://www.creative-tim.com/product/paper-dashboard-2-pro?ref=pd-free-upgrade-live"
+                            href="#"
                             rel="noopener noreferrer"
                             target="_blank"
                           >
-                            Upgrade to PRO
+                            Configurate
                           </Button>
                         </td>
+                        <td />
+                        <td />
                       </tr>
                     </tbody>
                   </Table>
@@ -160,4 +126,4 @@ class Contribute extends React.Component {
   }
 }
 
-export default Contribute;
+export default Configuration;

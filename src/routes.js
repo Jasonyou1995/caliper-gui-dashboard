@@ -29,19 +29,47 @@ Copyright (c) 2019 Jason You
 */
 
 import Dashboard from "views/Dashboard.jsx";
-import Notifications from "views/Notifications.jsx";
+// import Notifications from "views/Notifications.jsx";
 import Icons from "views/Icons.jsx";
-import Typography from "views/Typography.jsx";
-import TableList from "views/Tables.jsx";
-import UserPage from "views/User.jsx";
-import Contribute from "views/Contribute.jsx";
+import Documentation from "views/Documentation.jsx";
+import History from "views/History.jsx";
+import NetworkGraph from "views/NetworkGraph.jsx";
+import Configuration from "views/Configuration.jsx";
 
 var routes = [
-  {
+  { 
     path: "/dashboard",
     name: "Dashboard",
-    icon: "nc-icon nc-app",
+    icon: "nc-icon nc-chart-bar-32",
     component: Dashboard,
+    layout: "/admin"
+  },
+  {
+    path: "/network-graph",
+    name: "Network Graph",
+    icon: "nc-icon nc-vector",
+    component: NetworkGraph,
+    layout: "/admin"
+  },
+  // {
+  //   path: "/notifications",
+  //   name: "Notifications",
+  //   icon: "nc-icon nc-bell-55",
+  //   component: Notifications,
+  //   layout: "/admin"
+  // },
+  {
+    path: "/history",
+    name: "History Benchmarks",
+    icon: "nc-icon nc-cloud-upload-94",
+    component: History,
+    layout: "/admin"
+  },
+  {
+    path: "/documentation",
+    name: "Documentation",
+    icon: "nc-icon nc-single-copy-04",
+    component: Documentation,
     layout: "/admin"
   },
   {
@@ -52,40 +80,11 @@ var routes = [
     layout: "/admin"
   },
   {
-    path: "/notifications",
-    name: "Notifications",
-    icon: "nc-icon nc-bell-55",
-    component: Notifications,
+    path: "/configuration",
+    name: "Configuration",
+    icon: "nc-icon nc-settings",
+    component: Configuration,
     layout: "/admin"
   },
-  {
-    path: "/user-page",
-    name: "User Profile",
-    icon: "nc-icon nc-single-02",
-    component: UserPage,
-    layout: "/admin"
-  },
-  {
-    path: "/tables",
-    name: "Table List",
-    icon: "nc-icon nc-tile-56",
-    component: TableList,
-    layout: "/admin"
-  },
-  {
-    path: "/typography",
-    name: "Typography",
-    icon: "nc-icon nc-caps-small",
-    component: Typography,
-    layout: "/admin"
-  },
-  {
-    bottom: true,
-    path: "/contributing",
-    name: "contributing Guides",
-    icon: "nc-icon nc-spaceship",
-    component: Contribute,
-    layout: "/admin"
-  }
 ];
 export default routes;

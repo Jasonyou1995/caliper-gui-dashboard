@@ -85,7 +85,7 @@ class Notifications extends React.Component {
       ),
       type: type,
       icon: "nc-icon nc-bell-55",
-      autoDismiss: 7
+      autoDismiss: 7,
     };
     this.notificationAlert.current.notificationAlert(options);
   }
@@ -100,20 +100,7 @@ class Notifications extends React.Component {
                 <CardHeader>
                   <CardTitle tag="h5">Notifications</CardTitle>
                   <p className="card-category">
-                    Handcrafted by our colleague{" "}
-                    <a
-                      target="_blank"
-                      href="https://www.instagram.com/manu.nazare/"
-                    >
-                      Nazare Emanuel-Ioan (Manu)
-                    </a>
-                    . Please checkout the{" "}
-                    <a
-                      href="https://github.com/creativetimofficial/react-notification-alert"
-                      target="_blank"
-                    >
-                      full documentation.
-                    </a>
+                    Notification usage demo
                   </p>
                 </CardHeader>
                 <CardBody>
@@ -142,7 +129,7 @@ class Notifications extends React.Component {
                               className="nc-icon nc-bell-55"
                             />
                             <span data-notify="message">
-                              This is a notification with close button and icon.
+                              This is a notification with close button and icon.as;ldkfjas;ldkfjas;lkfjasl;kfjas;lkfjas;lfjas;dlkfjs;lkdfj
                             </span>
                           </UncontrolledAlert>
                           <UncontrolledAlert

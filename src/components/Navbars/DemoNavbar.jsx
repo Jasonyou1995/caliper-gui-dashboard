@@ -42,10 +42,6 @@ import {
   DropdownMenu,
   DropdownItem,
   Container,
-  InputGroup,
-  InputGroupText,
-  InputGroupAddon,
-  Input
 } from "reactstrap";
 
 import routes from "routes.js";
@@ -163,40 +159,50 @@ class Header extends React.Component {
             navbar
             className="justify-content-end"
           >
-            <form>
-              <InputGroup className="no-border">
-                <Input placeholder="Search..." />
-                <InputGroupAddon addonType="append">
-                  <InputGroupText>
-                    <i className="nc-icon nc-zoom-split" />
-                  </InputGroupText>
-                </InputGroupAddon>
-              </InputGroup>
-            </form>
             <Nav navbar>
               <NavItem>
-                <Link to="#pablo" className="nav-link btn-magnify">
+                <Link to="/dashboard" className="nav-link btn-magnify">
                   <i className="nc-icon nc-layout-11" />
                   <p>
                     <span className="d-lg-none d-md-block">Stats</span>
                   </p>
                 </Link>
               </NavItem>
+
               <Dropdown
                 nav
                 isOpen={this.state.dropdownOpen}
                 toggle={e => this.dropdownToggle(e)}
               >
                 <DropdownToggle caret nav>
-                  <i className="nc-icon nc-bell-55" />
+                  <i className="nc-icon nc-chart-bar-32" />
                   <p>
                     <span className="d-lg-none d-md-block">Some Actions</span>
                   </p>
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem tag="a">Action</DropdownItem>
-                  <DropdownItem tag="a">Another Action</DropdownItem>
-                  <DropdownItem tag="a">Something else here</DropdownItem>
+
+                <Link to="/dashboard">
+                  <DropdownItem tag="a">
+                      Transaction Throughput
+                  </DropdownItem>
+                </Link>
+                <Link to="/dashboard">
+                  <DropdownItem tag="a">
+                      Read Throughput
+                  </DropdownItem>
+                </Link>
+                <Link to="/dashboard">
+                  <DropdownItem tag="a">
+                      Transaction Latency
+                  </DropdownItem>
+                </Link>
+                <Link to="/dashboard">
+                  <DropdownItem tag="a">
+                      Read Latency
+                  </DropdownItem>
+                </Link>
+
                 </DropdownMenu>
               </Dropdown>
               <NavItem>

@@ -11,232 +11,125 @@
 Copyright (c) 2019 Jason You
 
 */
-/*!
-
-- Caliper GUI includes codes from Creative Time, which is licensed
-- under the MIT license:
-=========================================================
-* Bootstrap Theme Copyright (Paper Dashboard React - v1.1.0)
-=========================================================
-* Product Page: https://www.creative-tim.com/product/paper-dashboard-react
-* Paper Dashboard React - v1.1.0 Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard-react/blob/master/LICENSE.md)
-* Coded by Creative Tim
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 
 import React from "react";
-// react plugin used to create charts
-import { Line, Pie } from "react-chartjs-2";
-// reactstrap components
+
+// Importing All Data
 import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  CardTitle,
-  Row,
-  Col
-} from "reactstrap";
-// core components
-import {
-  dashboard24HoursPerformanceChart,
-  dashboardEmailStatisticsChart,
-  dashboardNASDAQChart
-} from "variables/charts.jsx";
+  myData as data,
+  barData,
+  doughnutData,
+  radarData,
+  radarOptions,
+  barOptions,
+  lineOptions,
+  doughnutOptions,
+} from "../data/mockData";
+
+// Utility functions for notifications
+import NotificationAlert from "react-notification-alert";
+
+// Dashboard overview and visualization components
+import DashboardOverview from "./DashboardOverview";
+import DashboardVisualization from "./DashboardVisualization";
 
 class Dashboard extends React.Component {
+  // chart.js data
+  state = {
+    data: data,
+    barData: barData,
+    doughnutData: doughnutData,
+    radarData: radarData,
+    radarOptions: radarOptions,
+    barOptions: barOptions,
+    lineOptions: lineOptions,
+    doughnutOptions: doughnutOptions,
+  }
+
+  // Notification function for alert information
+  notify() {
+    // Dashboard notification
+    this.refs.notificationAlert.notificationAlert({
+      place: "br",
+      message: (
+          <div>
+              <div>
+                  Welcome to <b>Caliper GUI</b> - An Intuitive Visualization Tool for Hyperledger Caliper.
+              </div>
+          </div>
+      ),
+      type: "primary",
+      icon: "now-ui-icons ui-1_bell-53",
+      autoDismiss: 7
+    });
+  }
+  
+  // notifications for alert and debug
+  componentDidMount() {
+    this.notify();    // a notification tab
+  }
+
+  // select proper component to display
+  selectComponent = () => {
+    let currentPath = this.props.location.pathname.split("/");
+    let currentComponent = currentPath[currentPath.length - 1];
+    let name = "";
+
+    switch(currentComponent) {
+      case "dashboard":
+        name = "Overview";
+        break;
+      case "tx-throughput":
+        name = "Transaction Throughput";
+        break;
+      case "tx-latency":
+        name = "Transaction Latency";
+        break;
+      case "read-throughput":
+          name = "Read Throughput";
+          break;
+      case "read-latency":
+          name = "Read Latency";
+          break;
+      default:
+        name = "";
+    }
+
+    // Determine the component to display based on name
+    if (name === "Overview") {
+      return (
+        <DashboardOverview />
+      )
+    } else if (name !== "") {
+      return (
+        <DashboardVisualization
+          name={name}
+          lineData={data}
+          lineOptions={lineOptions}
+          lineHeight={100}
+          doughnutData={doughnutData}
+          doughnutOptions={doughnutOptions}
+          doughnutHeight={300}
+          barData={barData}
+          barOptions={barOptions}
+          barHeight={300}
+        />
+      );
+    } else {
+      return (
+        <>
+          <h1>404</h1>
+        </>
+      );
+    }
+  }
+
   render() {
     return (
       <>
         <div className="content">
-          <Row>
-            <Col lg="3" md="6" sm="6">
-              <Card className="card-stats">
-                <CardBody>
-                  <Row>
-                    <Col md="4" xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-globe text-warning" />
-                      </div>
-                    </Col>
-                    <Col md="8" xs="7">
-                      <div className="numbers">
-                        <p className="card-category">TPS</p>
-                        <CardTitle tag="p">1,500</CardTitle>
-                        <p />
-                      </div>
-                    </Col>
-                  </Row>
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="fas fa-sync-alt" /> Update Now
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-            <Col lg="3" md="6" sm="6">
-              <Card className="card-stats">
-                <CardBody>
-                  <Row>
-                    <Col md="4" xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-money-coins text-success" />
-                      </div>
-                    </Col>
-                    <Col md="8" xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Tx. Latency</p>
-                        <CardTitle tag="p">1,345 ms</CardTitle>
-                        <p />
-                      </div>
-                    </Col>
-                  </Row>
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="far fa-calendar" /> Last 3 hours
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-            <Col lg="3" md="6" sm="6">
-              <Card className="card-stats">
-                <CardBody>
-                  <Row>
-                    <Col md="4" xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-vector text-danger" />
-                      </div>
-                    </Col>
-                    <Col md="8" xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Errors</p>
-                        <CardTitle tag="p">23</CardTitle>
-                        <p />
-                      </div>
-                    </Col>
-                  </Row>
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="far fa-clock" /> In the last hour
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-            <Col lg="3" md="6" sm="6">
-              <Card className="card-stats">
-                <CardBody>
-                  <Row>
-                    <Col md="4" xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-favourite-28 text-primary" />
-                      </div>
-                    </Col>
-                    <Col md="8" xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Success</p>
-                        <CardTitle tag="p">+45K</CardTitle>
-                        <p />
-                      </div>
-                    </Col>
-                  </Row>
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="fas fa-sync-alt" /> Update now
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-          </Row>
-          <Row>
-            <Col md="12">
-              <Card>
-                <CardHeader>
-                  <CardTitle tag="h5">Fabric CPP Volumns</CardTitle>
-                  <p className="card-category">24 Hours performance</p>
-                </CardHeader>
-                <CardBody>
-                  <Line
-                    data={dashboard24HoursPerformanceChart.data}
-                    options={dashboard24HoursPerformanceChart.options}
-                    width={400}
-                    height={100}
-                  />
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="fa fa-history" /> Updated 3 minutes ago
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-          </Row>
-          <Row>
-            <Col md="4">
-              <Card>
-                <CardHeader>
-                  <CardTitle tag="h5">Transaction Statistics</CardTitle>
-                  <p className="card-category">Last Campaign Performance</p>
-                </CardHeader>
-                <CardBody>
-                  <Pie
-                    data={dashboardEmailStatisticsChart.data}
-                    options={dashboardEmailStatisticsChart.options}
-                  />
-                </CardBody>
-                <CardFooter>
-                  <div className="legend">
-                    <i className="fa fa-circle text-primary" /> Fast{" "}
-                    <i className="fa fa-circle text-warning" /> Slow{" "}
-                    <i className="fa fa-circle text-danger" /> Failed{" "}
-                    <i className="fa fa-circle text-gray" />  Pending
-                  </div>
-                  <hr />
-                  <div className="stats">
-                    <i className="fa fa-calendar" /> Number of transactions sent
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-            <Col md="8">
-              <Card className="card-chart">
-                <CardHeader>
-                  <CardTitle tag="h5">Throughput History</CardTitle>
-                  <p className="card-category">Line Chart with Points</p>
-                </CardHeader>
-                <CardBody>
-                  <Line
-                    data={dashboardNASDAQChart.data}
-                    options={dashboardNASDAQChart.options}
-                    width={400}
-                    height={100}
-                  />
-                </CardBody>
-                <CardFooter>
-                  <div className="chart-legend">
-                    <i className="fa fa-circle text-info" /> Fabric CPP{" "}
-                    <i className="fa fa-circle text-warning" /> Sawtooth
-                  </div>
-                  <hr />
-                  <div className="card-stats">
-                    <i className="fa fa-check" /> Data information certified
-                  </div>
-                </CardFooter>
-              </Card>
-            </Col>
-          </Row>
+          <NotificationAlert ref="notificationAlert" />
+          {this.selectComponent()}
         </div>
       </>
     );

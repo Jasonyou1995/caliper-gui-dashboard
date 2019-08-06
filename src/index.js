@@ -37,6 +37,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "assets/scss/paper-dashboard.scss?v=1.1.0";
 import "assets/demo/demo.css";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
+// import "react-notification-alert/dist/animate.css";
 
 import AdminLayout from "layouts/Admin.jsx";
 
@@ -51,3 +52,8 @@ ReactDOM.render(
   </Router>,
   document.getElementById("root")
 );
+
+// Hot module replacement
+if (module.hot) {
+  module.hot.accept();
+}
