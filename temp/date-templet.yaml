@@ -1,10 +1,18 @@
 dashboard
   overview:
+    # one of the framework names
+    connected-network:
+      - fabric-ccp
+      - sawtooth
+      - iroha
+      - burrow
     avreages:
       - ave-tx-throughput
       - ave-tx-latency
       - ave-read-throughput
       - ave-read-latency
+    volumn:
+      - volumn-each-5-seconds
   transaction-throughput
     
   transaction-latency

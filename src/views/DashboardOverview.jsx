@@ -37,13 +37,11 @@ import {
     CardHeader,
     CardTitle,
     CardFooter,
+    Button,
 } from "reactstrap";
 
 import { 
     Line,
-    Bar, 
-    Doughnut,
-    Radar,
   } from "react-chartjs-2";
 
   import {
@@ -56,115 +54,139 @@ const DashboardOverview = function() {
       <div id="overview-block">
           <Row>
             <Col lg="3" md="6" sm="6">
-              <Card className="card-stats">
-                <CardBody>
-                  <Row>
-                    <Col md="4" xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-globe text-warning" />
-                      </div>
-                    </Col>
-                    <Col md="8" xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Transaction Throughput</p>
-                        <CardTitle tag="p">1,500</CardTitle>
-                        <p />
-                      </div>
-                    </Col>
-                  </Row>
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="fas fa-sync-alt" /> Update Now
-                  </div>
-                </CardFooter>
-              </Card>
+              <a
+                href="/admin/dashboard/tx-throughput"
+                target="_self"
+                style={{"textDecoration": "none"}}
+              >
+                <Card className="card-stats">
+                  <CardBody>
+                    <Row>
+                      <Col md="4" xs="5">
+                        <div className="icon-big text-center icon-warning">
+                          <i className="nc-icon nc-globe text-warning" />
+                        </div>
+                      </Col>
+                      <Col md="8" xs="7">
+                        <div className="numbers">
+                          <p className="card-category">Tx TPS</p>
+                          <CardTitle tag="p">1,500</CardTitle>
+                          <p />
+                        </div>
+                      </Col>
+                    </Row>
+                  </CardBody>
+                  <CardFooter>
+                    <hr />
+                    <div className="stats">
+                          <i className="fas fa-sync-alt" /> See Details
+                    </div>
+                  </CardFooter>
+                </Card>
+              </a>
             </Col>
             <Col lg="3" md="6" sm="6">
-              <Card className="card-stats">
-                <CardBody>
-                  <Row>
-                    <Col md="4" xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-money-coins text-success" />
-                      </div>
-                    </Col>
-                    <Col md="8" xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Transaction Latency</p>
-                        <CardTitle tag="p">1,345 ms</CardTitle>
-                        <p />
-                      </div>
-                    </Col>
-                  </Row>
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="far fa-calendar" /> Last 3 hours
-                  </div>
-                </CardFooter>
-              </Card>
+              <a
+                href="/admin/dashboard/tx-latency"
+                target="_self"
+                style={{"textDecoration": "none"}}
+              >
+                <Card className="card-stats">
+                  <CardBody>
+                    <Row>
+                      <Col md="4" xs="5">
+                        <div className="icon-big text-center icon-warning">
+                          <i className="nc-icon nc-money-coins text-success" />
+                        </div>
+                      </Col>
+                      <Col md="8" xs="7">
+                        <div className="numbers">
+                          <p className="card-category">Tx Latency</p>
+                          <CardTitle tag="p">1,345 ms</CardTitle>
+                          <p />
+                        </div>
+                      </Col>
+                    </Row>
+                  </CardBody>
+                  <CardFooter>
+                    <hr />
+                    <div className="stats">
+                      <i className="far fa-calendar" /> Last 3 hours
+                    </div>
+                  </CardFooter>
+                </Card>
+              </a>
             </Col>
             <Col lg="3" md="6" sm="6">
-              <Card className="card-stats">
-                <CardBody>
-                  <Row>
-                    <Col md="4" xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-vector text-danger" />
-                      </div>
-                    </Col>
-                    <Col md="8" xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Read Latency</p>
-                        <CardTitle tag="p">23</CardTitle>
-                        <p />
-                      </div>
-                    </Col>
-                  </Row>
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="far fa-clock" /> In the last hour
-                  </div>
-                </CardFooter>
-              </Card>
+              <a
+                href="/admin/dashboard/read-throughput"
+                target="_self"
+                style={{"textDecoration": "none"}}
+              >
+                <Card className="card-stats">
+                  <CardBody>
+                    <Row>
+                      <Col md="4" xs="5">
+                        <div className="icon-big text-center icon-warning">
+                          <i className="nc-icon nc-vector text-danger" />
+                        </div>
+                      </Col>
+                      <Col md="8" xs="7">
+                        <div className="numbers">
+                          <p className="card-category">Read TPS</p>
+                          <CardTitle tag="p">23</CardTitle>
+                          <p />
+                        </div>
+                      </Col>
+                    </Row>
+                  </CardBody>
+                  <CardFooter>
+                    <hr />
+                    <div className="stats">
+                      <i className="far fa-clock" /> In the last hour
+                    </div>
+                  </CardFooter>
+                </Card>
+              </a>
             </Col>
             <Col lg="3" md="6" sm="6">
-              <Card className="card-stats">
-                <CardBody>
-                  <Row>
-                    <Col md="4" xs="5">
-                      <div className="icon-big text-center icon-warning">
-                        <i className="nc-icon nc-favourite-28 text-primary" />
-                      </div>
-                    </Col>
-                    <Col md="8" xs="7">
-                      <div className="numbers">
-                        <p className="card-category">Read Throughput</p>
-                        <CardTitle tag="p">+45K</CardTitle>
-                        <p />
-                      </div>
-                    </Col>
-                  </Row>
-                </CardBody>
-                <CardFooter>
-                  <hr />
-                  <div className="stats">
-                    <i className="fas fa-sync-alt" /> Update now
-                  </div>
-                </CardFooter>
-              </Card>
+              <a
+                href="/admin/dashboard/read-latency"
+                target="_self"
+                style={{"textDecoration": "none"}}
+              >
+                <Card className="card-stats">
+                  <CardBody>
+                    <Row>
+                      <Col md="4" xs="5">
+                        <div className="icon-big text-center icon-warning">
+                          <i className="nc-icon nc-favourite-28 text-primary" />
+                        </div>
+                      </Col>
+                      <Col md="8" xs="7">
+                        <div className="numbers">
+                          <p className="card-category">Read Latency</p>
+                          <CardTitle tag="p">+45K</CardTitle>
+                          <p />
+                        </div>
+                      </Col>
+                    </Row>
+                  </CardBody>
+                  <CardFooter>
+                    <hr />
+                    <div className="stats">
+                      <i className="fas fa-sync-alt" /> Update now
+                    </div>
+                  </CardFooter>
+                </Card>
+              </a>
             </Col>
           </Row>
           <Row>
             <Col md="12">
               <Card>
                 <CardHeader>
-                  <CardTitle tag="h5">Fabric CPP Volumns</CardTitle>
+                  <CardTitle tag="h5">Latency Overview</CardTitle>
                   <p className="card-category">24 Hours performance</p>
                 </CardHeader>
                 <CardBody>
@@ -188,7 +210,7 @@ const DashboardOverview = function() {
             <Col md="12">
               <Card className="card-chart">
                 <CardHeader>
-                  <CardTitle tag="h5">Throughput History</CardTitle>
+                  <CardTitle tag="h5">Throughput Overview</CardTitle>
                   <p className="card-category">Line Chart with Points</p>
                 </CardHeader>
                 <CardBody>

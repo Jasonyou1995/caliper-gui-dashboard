@@ -164,7 +164,7 @@ class Header extends React.Component {
                 <Link to="/dashboard" className="nav-link btn-magnify">
                   <i className="nc-icon nc-layout-11" />
                   <p>
-                    <span className="d-lg-none d-md-block">Stats</span>
+                    <span className="d-lg-none d-md-block">Dashboard Overview</span>
                   </p>
                 </Link>
               </NavItem>
@@ -177,27 +177,27 @@ class Header extends React.Component {
                 <DropdownToggle caret nav>
                   <i className="nc-icon nc-chart-bar-32" />
                   <p>
-                    <span className="d-lg-none d-md-block">Some Actions</span>
+                    <span className="d-lg-none d-md-block">Chart Details</span>
                   </p>
                 </DropdownToggle>
                 <DropdownMenu right>
 
-                <Link to="/dashboard">
+                <Link to="/admin/dashboard/tx-throughput">
                   <DropdownItem tag="a">
                       Transaction Throughput
                   </DropdownItem>
                 </Link>
-                <Link to="/dashboard">
-                  <DropdownItem tag="a">
-                      Read Throughput
-                  </DropdownItem>
-                </Link>
-                <Link to="/dashboard">
+                <Link to="/admin/dashboard/tx-latency">
                   <DropdownItem tag="a">
                       Transaction Latency
                   </DropdownItem>
                 </Link>
-                <Link to="/dashboard">
+                <Link to="/admin/dashboard/read-throughput">
+                  <DropdownItem tag="a">
+                      Read Throughput
+                  </DropdownItem>
+                </Link>
+                <Link to="/admin/dashboard/read-latency">
                   <DropdownItem tag="a">
                       Read Latency
                   </DropdownItem>
@@ -206,10 +206,10 @@ class Header extends React.Component {
                 </DropdownMenu>
               </Dropdown>
               <NavItem>
-                <Link to="#pablo" className="nav-link btn-rotate">
+                <Link to="/admin/configuration" className="nav-link btn-rotate">
                   <i className="nc-icon nc-settings-gear-65" />
                   <p>
-                    <span className="d-lg-none d-md-block">Account</span>
+                    <span className="d-lg-none d-md-block">Configuration</span>
                   </p>
                 </Link>
               </NavItem>
