@@ -73,13 +73,6 @@ var routes = [
     layout: "/admin"
   },
   {
-    path: "/icons",
-    name: "Icons",
-    icon: "nc-icon nc-diamond",
-    component: Icons,
-    layout: "/admin"
-  },
-  {
     path: "/configuration",
     name: "Configuration",
     icon: "nc-icon nc-settings",
@@ -88,3 +81,15 @@ var routes = [
   },
 ];
 export default routes;
+
+
+/*
+Icon Tab Route Backup
+  {
+    path: "/icons",
+    name: "Icons",
+    icon: "nc-icon nc-diamond",
+    component: Icons,
+    layout: "/admin"
+  }
+*/

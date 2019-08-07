@@ -159,7 +159,7 @@ class Sidebar extends React.Component {
                     prop.path === "/dashboard" ?
                     <Collapse
                       isOpen={this.state.collapse}
-                      style={{backgroundColor: "rgba(236, 249, 249, 0.4)"}}
+                      style={{backgroundColor: "rgba(236, 249, 249, 0.05)"}}
                     >
                       <NavItem
                         className={this.activeRoute(prop.path + "/tx-throughput")}
