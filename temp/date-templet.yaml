@@ -14,8 +14,10 @@ dashboard
     volumn:
       - volumn-each-X-seconds
   transaction-throughput:
+    threshold-of-fast-medium-slow-tp
     real-time-timeseries-data
   transaction-latency:
+    threshold-of-fast-medium-slow-latency
     real-time-timeseries-data
   read-throughput:
     real-time-timeseries-data
