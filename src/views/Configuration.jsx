@@ -42,22 +42,65 @@ import {
   Col
 } from "reactstrap";
 
+// import configuration forms
+import TestConfigurationForm from "../components/Forms/TestConfigurationForm";
+import FabricConfigurationForm from "../components/Forms/FabricConfigurationForm";
+
 class Configuration extends React.Component {
   render() {
     return (
       <>
         <div className="content">
+
           <Row>
-            <Col className="ml-auto mr-auto" md="8">
-              <Card className="card-upgrade">
+            <Col className="ml-auto mr-auto" md="10">
+              <Card>
+
                 <CardHeader className="text-center">
-                  <CardTitle tag="h4">Caliper GUI Configuration</CardTitle>
+                  <CardTitle tag="h4">Test Configuration</CardTitle>
                   <p className="card-category">
-                    Select your options for Caliper GUI configuration.
+                    You can generate, save, and export configuration file in here.
                   </p>
                 </CardHeader>
+
                 <CardBody>
-                  
+                  <div className="text-center">
+                    <Button color="primary" style={{width:"300px"}}>Default Configuration</Button>
+                    <Button color="danger" style={{width:"300px"}}>Clear Form</Button>
+                  </div>
+
+                  <TestConfigurationForm />
+
+                  <div className="text-center">
+                    <Button color="success" style={{width:"300px"}}>Generate</Button>
+                  </div>
+                </CardBody>
+
+              </Card>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col className="ml-auto mr-auto" md="10">
+              <Card>
+                <CardHeader className="text-center">
+                  <CardTitle tag="h4">Fabric Configuration</CardTitle>
+                  <p className="">
+                    Using this form to generate Hyperledger Fabric Configuration File.
+                  </p>
+                </CardHeader>
+
+                <CardBody>
+                  <div className="text-center">
+                    <Button color="primary" style={{width:"300px"}}>Default Configuration</Button>
+                    <Button color="danger" style={{width:"300px"}}>Clear Form</Button>
+                  </div>
+
+                  <FabricConfigurationForm />
+
+                  <div className="text-center">
+                    <Button color="success" style={{width:"300px"}}>Generate</Button>
+                  </div>
                 </CardBody>
               </Card>
             </Col>
