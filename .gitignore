@@ -41,3 +41,38 @@ node_modules/
 *.sln
 *.sw?
 # OS specific
+
+# ====================================
+# AI Development & Code Generation
+# ====================================
+
+# Cursor AI Editor Configuration
+.cursor/
+.cursorignore
+
+# Taskmaster AI Task Management
+.taskmaster/
+
+# AI Code Generation Files
+.roo/
+.roomodes
+.windsurfrules
+
+# AI Assistant Context Files
+*.context
+*.prompt
+.ai-context/
+.prompts/
+
+# Development Utilities
+temp/
+tmp/
+scratch/
+drafts/
+
+# Additional AI Development Tools
+.windsurf/
+.v0/
+.claude/
+.copilot/
+.github-copilot/
