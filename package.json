@@ -1,52 +1,162 @@
 {
-  "name": "paper-dashboard-react",
-  "version": "1.1.0",
-  "private": true,
-  "homepage": "https://demos.creative-tim.com/paper-dashboard-react/#/dashboard",
-  "dependencies": {
-    "bootstrap": "4.3.1",
-    "chart.js": "^2.8.0",
-    "d3": "^5.9.7",
-    "history": "4.9.0",
-    "node-sass": "4.12.0",
-    "patternomaly": "^1.3.2",
-    "perfect-scrollbar": "1.4.0",
-    "react": "^16.8.6",
-    "react-chartjs-2": "^2.7.6",
-    "react-d3-graph": "^2.1.0",
-    "react-dom": "16.8.6",
-    "react-google-maps": "9.4.5",
-    "react-notification-alert": "0.0.12",
-    "react-router": "5.0.0",
-    "react-router-dom": "5.0.0",
-    "react-scripts": "3.0.1",
-    "reactstrap": "8.0.0"
+  "name": "hyperledger-caliper-gui-dashboard",
+  "version": "1.2.0",
+  "description": "Production-ready GUI Dashboard for Hyperledger Caliper benchmarking framework with real-time visualization and advanced analytics",
+  "author": "Jason You",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/jasony/caliper-gui-dashboard",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jasony/caliper-gui-dashboard.git"
   },
+  "keywords": [
+    "hyperledger",
+    "caliper",
+    "blockchain",
+    "benchmarking",
+    "dashboard",
+    "visualization",
+    "react",
+    "typescript"
+  ],
+  "private": true,
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
-    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
-    "compile-sass": "node-sass src/assets/scss/paper-dashboard.scss src/assets/css/paper-dashboard.css",
-    "minify-sass": "node-sass src/assets/scss/paper-dashboard.scss src/assets/css/paper-dashboard.min.css --output-style compressed",
-    "map-sass": "node-sass src/assets/scss/paper-dashboard.scss src/assets/css/paper-dashboard.css --source-map true"
+    "lint": "eslint src/**/*.{ts,tsx,js,jsx} --max-warnings 0",
+    "lint:fix": "eslint src/**/*.{ts,tsx,js,jsx} --fix",
+    "format": "prettier --write src/**/*.{ts,tsx,js,jsx,css,md}",
+    "format:check": "prettier --check src/**/*.{ts,tsx,js,jsx,css,md}",
+    "type-check": "tsc --noEmit",
+    "prepare": "husky install",
+    "analyze": "npm run build && npx serve -s build",
+    "clean": "rm -rf build node_modules/.cache",
+    "dev": "npm start"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^5.3.4",
+    "react-scripts": "5.0.1",
+    "@reduxjs/toolkit": "^1.9.3",
+    "react-redux": "^8.0.5",
+    "redux-persist": "^6.0.0",
+    "chart.js": "^4.2.1",
+    "react-chartjs-2": "^5.2.0",
+    "d3": "^5.16.0",
+    "react-d3-graph": "^2.6.0",
+    "bootstrap": "^5.2.3",
+    "reactstrap": "^9.1.6",
+    "react-notification-alert": "^0.0.13",
+    "patternomaly": "^1.3.2",
+    "perfect-scrollbar": "^1.5.5",
+    "react-grid-layout": "^1.3.4",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "socket.io-client": "^4.6.1",
+    "axios": "^1.3.4",
+    "date-fns": "^2.29.3",
+    "lodash": "^4.17.21",
+    "classnames": "^2.3.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@types/node": "^18.15.3",
+    "@types/d3": "^7.4.0",
+    "@types/lodash": "^4.14.191",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-import": "^2.27.5",
+    "prettier": "^2.8.7",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.0",
+    "typescript": "^4.9.5",
+    "sass": "^1.58.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "@typescript-eslint/recommended",
+      "prettier"
+    ],
+    "plugins": [
+      "@typescript-eslint",
+      "react-hooks",
+      "jsx-a11y"
+    ],
+    "rules": {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "jsx-a11y/anchor-is-valid": "warn"
+    }
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
-  "optionalDependencies": {
-    "@types/googlemaps": "3.36.2",
-    "@types/markerclustererplus": "2.1.33",
-    "@types/react": "16.8.19",
-    "ajv": "6.10.0",
-    "jquery": "3.4.1",
-    "typescript": "3.4.5"
+  "prettier": {
+    "semi": true,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.{css,md}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm run type-check && npm run test:coverage"
+    }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/index.tsx",
+      "!src/reportWebVitals.ts"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  },
+  "resolutions": {
+    "d3": "^5.16.0"
   }
 }
