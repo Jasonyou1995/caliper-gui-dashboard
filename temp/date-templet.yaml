@@ -1,0 +1,40 @@
+dashboard
+  overview:
+    # one of the framework names
+    connected-network:
+      - fabric-ccp
+      - sawtooth
+      - iroha
+      - burrow
+    average-data:
+      - ave-tx-throughput
+      - ave-tx-latency
+      - ave-read-throughput
+      - ave-read-latency
+    volumn:
+      - volumn-each-X-seconds
+  transaction-throughput:
+    threshold-of-fast-medium-slow-tp
+    real-time-timeseries-data
+  transaction-latency:
+    threshold-of-fast-medium-slow-latency
+    real-time-timeseries-data
+  read-throughput:
+    real-time-timeseries-data
+  read-latency:
+    real-time-timeseries-data
+network-graph
+  - name: “The network name (Fabric, Sawtooth, etc.)”,
+  - channels-information
+  - peers-information
+  - order-information
+history-data
+  time-series-real-time-data:
+    - ave-tx-throughput
+    - ave-tx-latency
+    - ave-read-throughput
+    - ave-read-latency
+  success-rate:
+    - Success
+    - Warning
+    - Failed
